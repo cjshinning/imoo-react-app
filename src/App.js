@@ -1,5 +1,5 @@
 import React from 'react'
-import {connect} from 'react-redux'
+import {connect} from './woniu-react-redux'
 import {addGun,removeGun,addGunAsync} from './index.redux'
 
 // const mapStatetoProps = (state) => {
@@ -9,14 +9,13 @@ import {addGun,removeGun,addGunAsync} from './index.redux'
 
 // App = connect(mapStatetoProps,actionCreators)(App)
 @connect(
-    // 你要什么属性放到props里
     state=>({num:state}),
-    // 你要什么方法,放到props里面
     {addGun,removeGun,addGunAsync}
 )
 
 class App extends React.Component{
     render(){
+        // console.log(this.props)
         return (
             <div>
                 <h1>现在有技巧{this.props.num}把</h1>
@@ -27,5 +26,10 @@ class App extends React.Component{
         )
     }
 }
+
+// App = connect(
+//     state=>({num:state}),
+//     {addGun,removeGun,addGunAsync}
+// )(App)
 
 export default App
