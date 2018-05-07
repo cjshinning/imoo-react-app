@@ -25,7 +25,7 @@ export function removeGun(){
 }
 
 export function addTwice(){
-    return [{type:ADD_GUN},{type:ADD_GUN},addGunAsync()]
+    return [{type:ADD_GUN},addGunAsync()]
 }
 
 export function addGunAsync(){
