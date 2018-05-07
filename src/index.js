@@ -4,6 +4,8 @@ import ReactDOM from 'react-dom'
 import {createStore,applyMiddleware} from './woniu-redux'
 // import thunk from 'redux-thunk'
 import thunk from './woniu-redux-thunk'
+import arrThunk from './woniu-redux-array'
+// import arrThunk from './woniu-redux-array'
 import {counter} from './index.redux'
 // import {Provider} from 'react-redux'
 import {Provider} from './woniu-react-redux'
@@ -17,7 +19,8 @@ import Demo from './demo'
 // const reduxDevtools = window.devToolsExtension?window.devToolsExtension():  f=>f
 // const store = createStore(counter,compose(applyMiddleware(thunk),reduxDevtools))
 
-const store = createStore(counter,applyMiddleware(thunk))
+const store = createStore(counter,applyMiddleware(thunk,arrThunk))
+// const store = createStore(counter,applyMiddleware(thunk,arrThunk))
 ReactDOM.render(
     <Provider store={store}>
         <App/>
