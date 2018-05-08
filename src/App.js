@@ -1,7 +1,13 @@
 import React from 'react'
 import {connect} from './woniu-react-redux'
 import {addGun,removeGun,addGunAsync,addTwice} from './index.redux'
+import {createSelector} from 'reselect'
 
+const numSelector = createSelector(
+    state=>state,
+    // 第二个参数是第一个的返回值
+    state=>({num:state*2})
+)
 // const mapStatetoProps = (state) => {
 //     return {num: state}
 // }
@@ -9,7 +15,8 @@ import {addGun,removeGun,addGunAsync,addTwice} from './index.redux'
 
 // App = connect(mapStatetoProps,actionCreators)(App)
 @connect(
-    state=>({num:state}),
+    // state=>({num:state*2}),
+    state=>numSelector(state),
     {addGun,removeGun,addGunAsync,addTwice}
 )
 
